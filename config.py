@@ -4,7 +4,7 @@ api_id=123 # your api id here
 api_hash="your hash here"
 
 # SPECIFY REPOSTS HERE !
-reposts = [
+REPOSTS = [
     # example
 
     # specify source and recepient chat names as strings
