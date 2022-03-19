@@ -1,7 +1,7 @@
 from collections import defaultdict
 from datetime import datetime
 
-from pyrogram import Client, idle
+from pyrogram import Client, idle, filters
 from prettytable import PrettyTable
 
 import config
@@ -21,7 +21,9 @@ IDS_TO_CHAT_NAMES = dict()
 REPOSTS = defaultdict(set)
 
 
-@app.on_message()
+# ignore msg edits
+# https://docs.pyrogram.org/faq/why-is-the-event-handler-triggered-twice-or-more
+@app.on_message(~filters.edited)
 async def do_repost(client, message):
     from_id = message.chat.id
     if from_id in REPOSTS.keys():
