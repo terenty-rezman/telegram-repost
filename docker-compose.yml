@@ -1,0 +1,9 @@
+version: '3.8'
+
+services:
+  telegram-repost:
+    build: .
+    container_name: telegram-repost
+    restart: always
+    volumes:
+     - .:/code
